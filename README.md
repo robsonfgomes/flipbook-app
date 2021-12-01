@@ -4,9 +4,12 @@ Usuário: admin@admin.com
 Senha: 123456  
 
 ### Comandos
+```
 composer install  
 php artisan db:create  
 php artisan migrate  
-php artisan db:seed  
-php artisan serve  
-
+php artisan db:seed 
+php artisan serve 
+npm install 
+npm run dev
+```

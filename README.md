@@ -10,6 +10,6 @@ php artisan db:create
 php artisan migrate  
 php artisan db:seed 
 php artisan serve 
-npm install 
+npm install
 npm run dev
 ```

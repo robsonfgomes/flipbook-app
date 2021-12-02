@@ -11286,3 +11286,19 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bg-white {
+    background-color: #fff;
+}

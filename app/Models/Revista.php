@@ -10,4 +10,26 @@ class Revista extends Model
     use HasFactory;
 
     protected $table = 'revista';
+
+    /**
+     * The atributtes are mass assignable.
+     * 
+     * @var array
+     */
+    protected $fillable = [
+        'edicao',
+        'descricao',
+        'thumbnail',
+        'pdf',        
+        'publicado'
+    ];
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'publicado' => false,
+    ];
 }

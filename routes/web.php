@@ -22,4 +22,4 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('test');
 
-Route::get('/revistas/inserir', [RevistaController::class, 'create'])->name('revistas.inserir');
+Route::match(['get', 'post'], '/revistas/inserir', [RevistaController::class, 'create'])->name('revistas.inserir');

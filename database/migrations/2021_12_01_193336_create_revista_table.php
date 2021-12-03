@@ -14,12 +14,12 @@ class CreateRevistaTable extends Migration
     public function up()
     {
         Schema::create('revista', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->string('edicao');
-            $table->string('caminho');
-            $table->string('paginas');      
-            $table->boolean('publicado');      
+            $table->id();            
+            $table->integer('edicao');            
+            $table->string('descricao');            
+            $table->string('thumbnail');
+            $table->string('pdf');                                    
+            $table->boolean('publicado');
             $table->timestamps();
         });
     }

@@ -11302,3 +11302,11 @@ textarea.form-control-lg {
 .bg-white {
     background-color: #fff;
 }
+
+button[type=submit] {
+    margin-right: 5px;
+}
+
+.form-switch input, label {
+    cursor: pointer;
+}

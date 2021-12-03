@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home', [
-            'revistas' => Revista::all()->sortBy('created_at')            
+            'revistas' => Revista::all()->sortByDesc('edicao')            
         ]);
     }
 }

@@ -20,7 +20,7 @@ class RevistaController extends Controller
     public function create(Request $request)
     {
         if($request->isMethod('post')) {
-            // TODO: Validate the request
+            // TODO: Validate the request            
             
             $input = $request->all();      
             $thumbnail = $request->file('thumbnail');
@@ -33,14 +33,14 @@ class RevistaController extends Controller
                 'edicao' => $request->input('edicao'),
                 'descricao' => $request->input('descricao'),
                 'thumbnail' => $pathThumb,
-                'pdf' => $pathPdf,
-                'publicado' => false                
+                'pdf' => $pathPdf                      
             ]);
 
             return view('revista.create', [
                 'revista' => $revista
             ]);
-        }
+        }        
+        
         return view('revista.create');
     }
 }

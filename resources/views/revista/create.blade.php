@@ -70,8 +70,12 @@
 
                         <div class="row mb-3">
                             <div class="col-md-11 text-right">                                                                
-                                <button type="submit" class="btn btn-sm btn-success">Salvar</button>
-                                <a href="{{ url('/') }}" class="btn btn-sm btn-light">Cancelar</a>
+                                <button type="submit" class="btn btn-sm btn-success">
+                                    <i class="bi bi-file-earmark-plus"></i> Salvar
+                                </button>
+                                <a href="{{ url('/') }}" class="btn btn-sm btn-light">
+                                    <i class="bi bi-arrow-return-left"></i> Cancelar
+                                </a>
                             </div>   
                         </div>                     
                     </form>

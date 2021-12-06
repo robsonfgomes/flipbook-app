@@ -18,8 +18,7 @@ class CreateRevistaTable extends Migration
             $table->integer('edicao');            
             $table->string('descricao');            
             $table->string('thumbnail');
-            $table->string('pdf');                                    
-            $table->boolean('publicado');
+            $table->string('pdf');                                                
             $table->timestamps();
         });
     }

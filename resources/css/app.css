@@ -22,3 +22,32 @@ button[type=submit] {
 .form-switch input, label {
     cursor: pointer;
 }
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card-revista {
+    width: 238px;
+    height: 320px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.card-revista img {    
+    height: 177px;
+}
+
+.card-revista .card-body a {
+    color: #2a2a2a;
+    text-decoration: none;
+}
+
+.card-revista .card-body span {
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 2px;
+}

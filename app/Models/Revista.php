@@ -20,16 +20,6 @@ class Revista extends Model
         'edicao',
         'descricao',
         'thumbnail',
-        'pdf',        
-        'publicado'
-    ];
-
-    /**
-     * The model's default values for attributes.
-     *
-     * @var array
-     */
-    protected $attributes = [
-        'publicado' => false,
-    ];
+        'pdf'        
+    ];    
 }

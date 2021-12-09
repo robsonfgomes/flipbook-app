@@ -21,6 +21,8 @@ Route::get('/', [HomeController::class, 'index']);
 //TODO: pesquisar onde estão essas rotas
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('test');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::match(['get', 'post'], '/revistas/inserir', [RevistaController::class, 'create'])->name('revistas.inserir');
+
+Route::get('/visualizar/{id}', [RevistaController::class, 'viewer'])->where('id', '[0-9]+')->name('revistas.viewer');

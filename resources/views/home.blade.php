@@ -21,11 +21,11 @@
             <div class="flex-container">  
                 @foreach ($revistas as $key => $revista)                                                                         
                         <div class="card card-revista">
-                            <a href="/storage/{{ $revista->pdf }}" target="_blank">
-                                <img src="/storage/{{ $revista->thumbnail }}" class="card-img-top" alt="...">
+                            <a href="{{ route('revistas.viewer', ['id' => $revista->id]) }}" target="_blank">
+                                <img src="{{ Storage::url($revista->thumbnail) }}" class="card-img-top" alt="...">
                             </a>
                             <div class="card-body">
-                                <a href="/storage/{{ $revista->pdf }}" target="_blank">
+                                <a href="{{ route('revistas.viewer', ['id' => $revista->id]) }}" target="_blank">
                                     <h5 class="card-title">Edição {{ $revista->edicao }}</h5>
                                 </a>
                                 <p class="card-text">{{ $revista->descricao }}</p>                                                        

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Revista;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RevistaController extends Controller
 {
@@ -42,5 +43,13 @@ class RevistaController extends Controller
         }        
         
         return view('revista.create');
+    }
+
+  
+    public function viewer($id)
+    {                
+        return view('revista.viewer', [
+            'revistaUrl' => Storage::url(Revista::find($id)->pdf)
+        ]);
     }
 }

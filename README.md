@@ -1,3 +1,6 @@
+# Flipbook App
+Um aplicativo que gerencia e converte arquivos PDF's em formato de revista.  
+
 ## Instalação
 Criar o arquivo de configuração e preencher com as credenciais de acesso ao banco de dados MySql:
 ```
@@ -22,6 +25,10 @@ php artisan db:seed
 Gerar a chave da aplicação:
 ```
 php artisan key:generate
+```
+Gerar link simbólico para acessar os arquivos de upload via navegador
+```
+php artisan storage:link
 ```
 Instalar das dependências do front-end:
 ```

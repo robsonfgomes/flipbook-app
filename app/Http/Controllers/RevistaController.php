@@ -21,7 +21,7 @@ class RevistaController extends Controller
     public function create(Request $request)
     {
         if($request->isMethod('post')) {
-            // TODO: Validate the request            
+            // TODO: TO Validate the request            
             
             $input = $request->all();      
             $thumbnail = $request->file('thumbnail');

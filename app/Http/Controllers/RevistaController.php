@@ -52,4 +52,9 @@ class RevistaController extends Controller
             'revistaUrl' => Storage::url(Revista::find($id)->pdf)
         ]);
     }
+
+    public function update() 
+    {
+        //TODO
+    }
 }

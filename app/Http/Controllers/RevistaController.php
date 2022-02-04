@@ -56,5 +56,6 @@ class RevistaController extends Controller
     public function update() 
     {
         //TODO
+        
     }
 }

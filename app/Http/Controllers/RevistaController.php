@@ -57,5 +57,6 @@ class RevistaController extends Controller
     {
         //TODO
         
+        
     }
 }

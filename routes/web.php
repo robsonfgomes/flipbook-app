@@ -23,6 +23,12 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::match(['get', 'post'], '/revistas/inserir', [RevistaController::class, 'create'])->name('revistas.inserir');
+Route::match(['get', 'post'], '/revistas/inserir', [RevistaController::class, 'create'])
+    ->name('revistas.inserir');
 
-Route::get('/visualizar/{id}', [RevistaController::class, 'viewer'])->where('id', '[0-9]+')->name('revistas.viewer');
+Route::get('/visualizar/{id}', [RevistaController::class, 'viewer'])
+    ->where('id', '[0-9]+')
+    ->name('revistas.viewer');
+
+Route::delete('revista/{revista}', [RevistaController::class, 'delete'])
+    ->middleware('auth');

@@ -59,4 +59,9 @@ class RevistaController extends Controller
         //Create update method        
         
     }
+
+    public function delete(Revista $revista)
+    {
+
+    }
 }

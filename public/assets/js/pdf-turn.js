@@ -52,12 +52,23 @@ var bookFlip = {
 			}
 		});
 
+		$(document).on('click', '.toolbar #previous , .directions .prev-button', function (e) {
+            $("#viewer").turn('previous');
+            return false;
+        });
+
+        $(document).on('click', '.toolbar #next, .directions .next-button', function (e) {
+            $("#viewer").turn('next');
+            return false;
+        });
+
+
 		$(document).on('baseviewerinit', () => {
 			PDFViewerApplicationOptions.set('scrollModeOnLoad',3);
 			
 			this._intoView = PDFViewerApplication.pdfViewer.scrollPageIntoView;
 			this._visPages = PDFViewerApplication.pdfViewer._getVisiblePages;
-		});
+		});		
 	},
 	// startup flipbook
 	start: function(){
@@ -76,6 +87,8 @@ var bookFlip = {
 		$('.spreadModeButtons').removeClass('toggled');
 		$('#' + selected).addClass('toggled');	
 		
+		$('body').append('<div class="directions"><a href="#" class="prev-button"></a><a href="#" class="next-button"></a></div>')
+
 		this._evSpread = PDFViewerApplication.eventBus._listeners.switchspreadmode;
 		PDFViewerApplication.eventBus._listeners.switchspreadmode = null;
 		

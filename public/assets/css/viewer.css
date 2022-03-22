@@ -2394,3 +2394,24 @@
     }
   }
   
+  .directions a{
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    outline: 0;
+    width: 45px;
+    height: 45px;
+    text-indent: -9999px;
+    z-index: 9999;
+}
+
+.directions a.prev-button{
+    left: 0;
+    background: #f7f6f6 url(../img/alt-prev.png) no-repeat center center;
+}
+
+
+.directions a.next-button{
+    right: 0;
+    background: #f7f6f6 url(../img/alt-next.png) no-repeat center center;
+}

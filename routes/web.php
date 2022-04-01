@@ -16,19 +16,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home')
+    ->middleware('auth');
 
 //TODO: pesquisar onde estão essas rotas
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])
+    ->name('home')
+    ->middleware('auth');
 
 Route::match(['get', 'post'], '/revistas/inserir', [RevistaController::class, 'create'])
-    ->name('revistas.inserir');
+    ->name('revistas.inserir')
+    ->middleware('auth');
 
-Route::get('/visualizar/{id}', [RevistaController::class, 'viewer'])
+Route::get('/revistas/visualizar/{id}', [RevistaController::class, 'viewer'])
     ->where('id', '[0-9]+')
     ->name('revistas.viewer');
 
-Route::delete('revista/{revista}', [RevistaController::class, 'delete'])
+Route::get('/revista/remover/{revista}', [RevistaController::class, 'delete'])
+    ->name('revista.delete')
     ->middleware('auth');
+
+Route::get('/revistas', [RevistaController::class, 'list'])
+    ->name('revistas.list');
+
+Route::fallback(function () {
+    return redirect('/home')->with('danger', 'A página solicitada não existe!');
+});

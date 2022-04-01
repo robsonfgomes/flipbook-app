@@ -82,12 +82,6 @@
                 </div>                
             </div>            
         </div>
-    </div>
-    @if (isset($revista) && !empty($revista))
-        <div class="row justify-content-center">
-            <img src="/storage/{{ $revista->thumbnail }}" />     
-            <a href="/storage/{{ $revista->pdf }}" target="_blank">Revista</a>
-        </div>
-    @endif
+    </div>  
 </div>
 @endsection

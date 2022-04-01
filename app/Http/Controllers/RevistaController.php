@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Revista;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
 class RevistaController extends Controller
@@ -15,7 +17,7 @@ class RevistaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        
     }
 
     public function create(Request $request)
@@ -37,14 +39,29 @@ class RevistaController extends Controller
                 'pdf' => $pathPdf                      
             ]);
 
-            return view('revista.create', [
-                'revista' => $revista
-            ]);
+            return Redirect::route('home')->with('success', 'Revista criada com sucesso.');
         }        
         
         return view('revista.create');
     }
 
+
+    public function list() 
+    {        
+        $revistas = Revista::all()->sortByDesc('edicao');
+
+        if(isset( $revistas) && !empty($revistas)) {
+            $indice = 0;
+            foreach($revistas as $revista) {
+                $revista->indice = $indice + 1;
+                $indice++;
+            }
+        }       
+
+        return view('revista.list', [
+            'revistas' => $revistas             
+        ]);
+    }
   
     public function viewer($id)
     {                
@@ -53,15 +70,18 @@ class RevistaController extends Controller
         ]);
     }
 
-    public function update() 
-    {
-        //TODO
-        //Create update method        
-        
-    }
-
     public function delete(Revista $revista)
     {
+        try {
+            Storage::disk('public')->delete([
+                $revista->thumbnail, 
+                $revista->pdf
+            ]);
+            $revista->delete();            
+            return Redirect::route('home')->with('success', 'Revista removida com sucesso.');
 
+        } catch(Exception $ex) {
+            return Redirect::back()->with('danger', $ex->getMessage());
+        }
     }
 }
